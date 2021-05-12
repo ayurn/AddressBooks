@@ -84,7 +84,7 @@ public class ContactDetails {
         this.phoneNumber = phoneNumber;
     }
     public String toString() {
-        return "ContactPerson [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phoneNumber + ", city=" + city
-                + ", state=" + state + ", zip=" + zip + ", email=" + email + "]";
+        return "[First Name =" + firstName + ", Last Name =" + lastName + ", Phone =" + phoneNumber + ", City =" + city
+                + ", State =" + state + ", Zip =" + zip + ", Email =" + email + "]";
     }
 }

@@ -9,21 +9,27 @@ public class AddressBookMain {
         System.out.println("Welcome to Address Book Program");
 
         AddressBook addressBook = new AddressBook();
-        System.out.println("Enter the contact details:");
-        String firstName = sc.next();
-        String lastName = sc.next();
-        String address = sc.next();
-        String city = sc.next();
-        String state = sc.next();
-        String email = sc.next();
-        String phoneNumber = sc.next();
-        String zip = sc.next();
-        ContactDetails cd = new ContactDetails(firstName, lastName, address, city, state, email, phoneNumber, zip);
+        boolean flag = true;
 
-        ArrayList<ContactDetails> contactList = addressBook.contactList(cd);
-        for (ContactDetails contact : contactList) {
-            System.out.println(contact.getFirstName() + " " + contact.getLastName() + " " + contact.getAddress() + " " + contact.getCity() +
-                    " " + contact.getState() + " " + contact.getEmail() + " " + contact.getPhoneNumber() + " " + contact.getZip());
+        while(flag) {
+
+            System.out.println("1.Add Contact");
+            System.out.println("2.Exit");
+            System.out.println("Enter Choice: ");
+
+            int option = sc.nextInt();
+
+            switch (option)
+            {
+                case 1:
+                    addressBook.addContactDetails();
+                    break;
+
+                case 2:
+                    flag =false;
+                    break;
+            }
         }
     }
 }
+

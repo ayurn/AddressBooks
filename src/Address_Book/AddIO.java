@@ -20,26 +20,26 @@ public class AddIO extends MainIO {
         Scanner input = new Scanner(System.in);
         boolean duplicate, valid;
         String currentLine1;
-        String firstName = "";//I initialize the variablesto avoid errors
+        String firstName = "";
         String lastName = "";
         String Email = "";
         String city = "";
         String state = "";
         String address = "";
-        int phonNumber = -1;
+        int phoneNumber = -1;
         int zipCode = -1;
         String str;
         System.out.println("Give First Name: ");
         firstName = input.nextLine();
         System.out.println("Give Last name: ");
         lastName = input.nextLine();
-        do {//this is a do-while loop in which I check for valid input and i loop through the txt file again to check if input is duplicate
+        do {//check for valid input and i loop through the txt file again to check if input is duplicate
             duplicate = false;
             valid = true;
             System.out.println("Give Phone Number: ");
-            //phonNumber = input.nextInt();
+            //phoneNumber = input.nextInt();
             try {
-                phonNumber = Integer.parseInt(input.nextLine());
+                phoneNumber = Integer.parseInt(input.nextLine());
             } catch (NumberFormatException e) {
                 valid = false;
                 System.out.println("Phone number must be number.");
@@ -47,7 +47,7 @@ public class AddIO extends MainIO {
             }
             while ((currentLine1 = reader1.readLine()) != null) {//check for duplicate
                 String[] words1 = currentLine1.split(",");
-                if (words1[2].equals(String.valueOf(phonNumber))) {
+                if (words1[2].equals(String.valueOf(phoneNumber))) {
                     duplicate = true;
                     System.out.println("Phone must be unique among the contacts.");
                 }
@@ -89,11 +89,11 @@ public class AddIO extends MainIO {
             }
         } while (valid == false);
 
-        if(firstName == "" || lastName == "" || Email == "" || city == "" || state == "" || address == "" || phonNumber == -1 || zipCode == -1) {//i check that all variables have a valid attribute assigned
+        if(firstName == "" || lastName == "" || Email == "" || city == "" || state == "" || address == "" || phoneNumber == -1 || zipCode == -1) {
             System.out.println("You gave false inputs, adding new contact wasn't successful: ");
         }
         else{
-            str = firstName + "," + lastName + "," + String.valueOf(phonNumber) + "," + "," + Email + "," + address + "," + city + "," + "," + state + "," + String.valueOf(zipCode);
+            str = firstName + "," + lastName + "," + String.valueOf(phoneNumber) + "," + "," + Email + "," + address + "," + city + "," + "," + state + "," + String.valueOf(zipCode);
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file1, true)));//with these code I add a line at the bottom of the file
             out.println(str);
             out.close();
